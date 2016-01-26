@@ -9,6 +9,9 @@ from theano.tensor.signal import downsample
 from logistic_sgd import LogisticRegression, load_data
 from mlp import HiddenLayer
 
+import theano.sandbox.cuda
+theano.sandbox.cuda.use("gpu0")
+
 class LeNetConvPoolLayer(object):
     """畳み込みニューラルネットの畳み込み層＋プーリング層"""
     def __init__(self, rng, input, image_shape, filter_shape, poolsize=(2, 2)):
